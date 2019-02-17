@@ -7,9 +7,9 @@
  Посмотрите как работает forEach и повторите это поведение для массива, который будет передан в параметре array
  */
 function forEach(array, fn) {
-  for (var elmnt =0; elmnt<array.length; elmnt++){
-    fn(array[elmnt], elmnt, array)
-  }
+    for (var elmnt =0; elmnt<array.length; elmnt++) {
+        fn(array[elmnt], elmnt, array)
+    }
 }
 
 /*
@@ -19,11 +19,11 @@ function forEach(array, fn) {
  Посмотрите как работает map и повторите это поведение для массива, который будет передан в параметре array
  */
 function map(array, fn) {
-  var nwArray = [];
-  for (var indx = 0; indx < array.length; indx++){
-    nwArray.push(fn(array[indx], indx, array));
-  }
-  return nwArray;
+    var nwArray = [];
+    for (var indx = 0; indx < array.length; indx++) {
+        nwArray.push(fn(array[indx], indx, array));
+    }
+   return nwArray;
 }
 
 /*
@@ -33,6 +33,24 @@ function map(array, fn) {
  Посмотрите как работает reduce и повторите это поведение для массива, который будет передан в параметре array
  */
 function reduce(array, fn, initial) {
+  var start = 0, result = intialValue;
+  if(arr == null){
+    throw new TypeError('reduce called on null or undefined');
+  }
+  if (typeof reducer !== 'function') {
+      throw new TypeError( reducer + ' is not a function');
+  }
+  if(arr.length == 0){
+      return intialValue;
+  }
+  if(intialValue === undefined){
+    result = arr[0];
+    start = 1;
+  }
+  for(let i = start; i < arr.length; i++){
+      result = reducer(result, arr[i], i, arr);
+  }
+  return result;  
 }
 
 /*
